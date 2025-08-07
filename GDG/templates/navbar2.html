@@ -1,0 +1,80 @@
+
+{% load static %}
+<header class="header"  style="margin-bottom: 20px;">
+			
+			
+      
+    <div class="header-inner">
+        <div class="container-fluid">
+            
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-12">
+                      
+                        <div class="logo">
+                        
+                            
+                            
+                            
+                            <a href="{% url 'home' %}"><img style='padding-top:10px;' src="{% static 'img/gdglogo' %}.jpg" width="350" height="" alt="#"></a>
+                        </div>
+                
+                        <div class="mobile-nav"></div>
+                     
+                    </div>
+                    <div class="col-lg-9 col-md-12 col-12">
+                 
+                        <div class="main-menu b">
+                            <nav class="navigation">
+                                <ul class="nav menu">
+                                    <li style="font-size: xx-large;">
+                                        <a href="{% url 'home' %}">Home</a>
+                                    </li>
+                                    <li style="font-size: xx-large;"><a href="{% url 'perks' %}">Perks </a> </li>
+                                  
+                                    <li style="font-size: xx-large;">
+                                        <a href="{% url 'home' %}#p">Events</a>
+                                    </li>
+                             
+                                    
+
+                                    <li style="font-size: xx-large;"><a href="{% url 'gallery2'%}">Gallery </a></li>
+                                    <!-- <li style="font-size: xx-large;"><a href="faq.html">Blogs </a> </li> -->
+                                    <li style="font-size: xx-large;"><a href="{% url 'contact' %}">Contact Us</a></li>
+                                    {% if request.session.email %}
+                                    <li style="font-size: xx-large;"><a href="{% url 'view_score' %}">View Scores</a></li>
+                                    
+                                    {% if task %}
+                                 
+                                    {% if task.kaggle_result is not None or task.gemini_result is not None or task.android_development_result is not None or task.kotlin_result is not None or task.flutter_result is not None or task.firebase_result >= 1 %}
+                                    <li style="font-size: xx-large;"><a href="{% url 'generate_certificate' %}">Download Certificate</a></li>
+                                {% endif %}
+                                
+                                    {% endif %}
+                                
+                                    <li style="font-size: xx-large;"><a href="{% url 'after_login' %}">Quiz</a></li>
+                                    <li style="font-size: xx-large;"><a href="{% url 'user_logout' %}">Logout</a></li>
+                                {% else %}
+                                    <li style="font-size: xx-large;"><a href="{% url 'registration' %}">Sign up</a></li>
+                                    <li style="font-size: xx-large;"><a href="{% url 'login2' %}">Login</a></li>
+                                {% endif %}
+                                
+                                
+
+
+
+                                    
+                                </ul>
+                                                   
+
+                            </nav>
+                            
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+            
+        </div>
+    </div>
+    
+</header>
